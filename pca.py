@@ -34,14 +34,15 @@ if __name__ == "__main__":
 
 
 #  n_components =  min(n_muestras, n_features)
-   pca = PCA(n_components=3)
+   pca = PCA(n_components=5)
    pca.fit(X_train)
 
 
-   ipca = IncrementalPCA(n_components=3, batch_size=10)
+   ipca = IncrementalPCA(n_components=7, batch_size=10)
    ipca.fit(X_train)
 
-   plt.plot(range(len(pca.explained_variance_)), pca.explained_variance_ratio_) 
+   plt.plot(range(len(pca.explained_variance_)), pca.explained_variance_ratio_)
+   plt.plot(range(len(ipca.explained_variance_)), ipca.explained_variance_ratio_) 
    plt.show()
 
    logistic = LogisticRegression(solver='lbfgs')
